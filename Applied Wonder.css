@@ -396,6 +396,63 @@ input {
   height: 100px;
 }
 
+.faq {
+  width: 100%;
+}
+
+.faq-heading {
+  display: flex;
+  align-items: center;
+  gap: var(--space-heading-gap);
+  width: 100%;
+  margin-bottom: 32px;
+}
+
+.faq-heading h2 {
+  margin: 0;
+  font-size: var(--text-heading-size);
+  line-height: var(--text-heading-line);
+  font-weight: 700;
+  letter-spacing: var(--text-heading-tracking);
+}
+
+.faq-heading span {
+  flex: 1;
+  height: 2px;
+  background: var(--color-rule);
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.faq-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.faq-item h3 {
+  margin: 0;
+  font-size: var(--text-heading-size);
+  line-height: var(--text-heading-line);
+  font-weight: 700;
+  letter-spacing: var(--text-heading-tracking);
+  color: var(--color-text);
+}
+
+.faq-item p {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: var(--text-body-size);
+  line-height: var(--text-body-line);
+  font-weight: 400;
+  letter-spacing: 0;
+  color: var(--color-text);
+}
+
 .footer-collage {
   position: relative;
   width: 2048px;
