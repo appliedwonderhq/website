@@ -91,8 +91,7 @@
               </div>
               <div class="app-copy">
                 <h3>That’s Right</h3>
-                <p class="shimmer-text">A voice your parent can talk to anytime, one that knows their life, and tells you each evening how
-                  their day went.</p>
+                <p class="shimmer-text"><span id="hint-text">Next up: the thing you do every morning, minus the friction.</span></p>
               </div>
               <span class="soon-badge">Soon</span>
             </article>
@@ -106,8 +105,7 @@
               </div>
               <div class="app-copy">
                 <h3>Mnemo</h3>
-                <p>Look back on your conversations, keep them private and within reach. Built for the moments you’d
-                  rather not lose.</p>
+                <p class="shimmer-text"><span id="mnemo-hint">The conversation you had last month, still there when you need it.</span></p>
               </div>
             </article>
 
@@ -122,8 +120,7 @@
               </div>
               <div class="app-copy">
                 <h3>Hop!</h3>
-                <p>Make it easier to care for yourself without overthinking every choice. Coaching that helps you build
-                  routines that work in real life.</p>
+                <p class="shimmer-text"><span id="hop-hint">The routine that actually sticks.</span></p>
               </div>
             </article>
           </div>
@@ -257,6 +254,44 @@
       // Keep the dot aligned if the layout changes
       window.addEventListener('resize', positionDot);
     });
+
+      // Cycling hints for all apps
+      const hints = {
+        'hint-text': [
+          "Next up: the thing you do every morning, minus the friction.",
+          "It has something to do with your inbox — and a lot less of it.",
+          "We're counting the taps you'll never make again.",
+          "A small tool for an annoyance you've stopped noticing."
+        ],
+        'mnemo-hint': [
+          "The conversation you had last month, still there when you need it.",
+          "Your memories, safe and searchable.",
+          "Never lose track of what matters.",
+          "The context you wish you could recall."
+        ],
+        'hop-hint': [
+          "The routine that actually sticks.",
+          "Self-care without the second-guessing.",
+          "Building habits that survive Monday morning.",
+          "Less thinking, more doing."
+        ]
+      };
+      
+      const hintIndices = {
+        'hint-text': 0,
+        'mnemo-hint': 0,
+        'hop-hint': 0
+      };
+      
+      for (const hintId in hints) {
+        const hintText = document.getElementById(hintId);
+        if (hintText) {
+          setInterval(() => {
+            hintIndices[hintId] = (hintIndices[hintId] + 1) % hints[hintId].length;
+            hintText.textContent = hints[hintId][hintIndices[hintId]];
+          }, 3800);
+        }
+      }
   </script>
 </body>
 
