@@ -17,14 +17,16 @@
 
     <div class="layout">
       <nav class="toc" aria-label="Sections">
-        <a href="#about">About</a>
+        <a class="active" href="#about">About</a>
         <a href="#join">Newsletter</a>
         <a href="#apps">Apps</a>
         <a href="https://x.com/appliedwonder" target="_blank">X / Twitter</a>
       </nav>
 
       <main class="content">
-        <p class="bio">Applied Wonder is a lab in the original sense — a group of curious people working on problems that annoy us personally. <br /> <br /> We’re focused on what makes everyday life unnecessarily hard. We use AI when it's free and useful, pay fairly when it isn't, and ignore it when it gets in the way.</p>
+        <section class="about" id="about" aria-label="About">
+          <p class="bio">Applied Wonder is a lab in the original sense — a group of curious people working on problems that annoy us personally. <br /> <br /> We’re focused on what makes everyday life unnecessarily hard. We use AI when it's free and useful, pay fairly when it isn't, and ignore it when it gets in the way.</p>
+        </section>
 
         <section class="visual-signup" id="join" aria-label="Newsletter signup">
           <div class="engraving-stage">
@@ -114,7 +116,7 @@
           </div>
         </section>
 
-        <div class="spacer" id="faq" aria-hidden="true"></div>
+        <div class="spacer"></div>
 
         <footer class="footer-collage" aria-label="Applied Wonder collage">
           <img class="footer-field" src="assets/footer-field.png" alt="">
@@ -162,7 +164,7 @@
         if (current) {
           setActiveLink(current);
         } else if (navLinks.length > 0) {
-          setActiveLink(sectionIdFromLink(navLinks[0]));
+          // setActiveLink(sectionIdFromLink(navLinks[0]));
         }
       }
 
