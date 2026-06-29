@@ -57,13 +57,33 @@
             </picture>
           </div>
 
-          <form class="signup-wrap">
+          <div class="signup-wrap newsletter-form-container">
             <div class="signup-glow"></div>
-            <div class="signup-form">
-              <input type="email" name="email" placeholder="name@email.com" aria-label="Email address" required>
-              <button type="submit" aria-label="Join newsletter"></button>
+            <form class="signup-form newsletter-form" action="https://app.loops.so/api/newsletter-form/cmqzc424l01xf0j321kmfkhad" method="POST">
+              <input class="newsletter-form-input" type="email" name="email" placeholder="name@email.com" aria-label="Email address" required>
+              <button type="submit" class="newsletter-form-button" aria-label="Join newsletter">
+                <svg width="57" height="57" viewBox="0 0 58 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="28.5" cy="28.5" r="28.5" fill="url(#paint0_linear_65_144102)" />
+                  <circle cx="28.5" cy="28.5" r="28" stroke="black" stroke-opacity="0.1" />
+                  <path d="M31.4855 39.8913C32.0012 39.8913 32.5169 39.6662 32.9526 39.2303L42.4238 29.7882C42.8233 29.396 43.063 28.8077 43.063 28.2339C43.063 27.6602 42.8233 27.0718 42.4238 26.6796L32.9672 17.2448C32.5169 16.7872 32.0012 16.5693 31.4855 16.5693C30.2508 16.5693 29.4155 17.4264 29.4155 18.5667C29.4155 19.1986 29.6842 19.6852 30.0765 20.0702L33.3304 23.3386L38.6179 28.2339L33.3304 33.1293L30.0765 36.3904C29.6842 36.7609 29.4155 37.262 29.4155 37.8939C29.4155 39.0342 30.2508 39.8913 31.4855 39.8913ZM16.9592 30.3403H33.3812L39.0246 30.0352C40.1505 29.9771 40.9058 29.3089 40.9058 28.2339C40.9058 27.159 40.1505 26.4908 39.0246 26.4327L33.3812 26.1276H16.9592C15.6518 26.1276 14.7803 26.9774 14.7803 28.2339C14.7803 29.4905 15.6518 30.3403 16.9592 30.3403Z" fill="black" fill-opacity="0.3" />
+                  <defs>
+                    <linearGradient id="paint0_linear_65_144102" x1="28.5" y1="0" x2="28.5" y2="57" gradientUnits="userSpaceOnUse">
+                      <stop stop-color="var(--button-gradient-start, #CACACA)" />
+                      <stop offset="1" stop-color="var(--button-gradient-end, #B8B8B8)" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </button>
+              <span class="newsletter-loading-button">Please wait...</span>
+            </form>
+            <div class="newsletter-success">
+              <p class="newsletter-success-message">Wonderfull!</p>
             </div>
-          </form>
+            <div class="newsletter-error">
+              <p class="newsletter-error-message">Oops! Something went wrong, please try again</p>
+            </div>
+            <button class="newsletter-back-button" type="button">&larr; Back</button>
+          </div>
         </section>
 
         <section class="apps" id="apps" aria-label="Apps">
@@ -310,6 +330,131 @@
             hintText.textContent = hints[hintId][hintIndices[hintId]];
           }, 3800);
         }
+      }
+
+      // Loops form handler
+      function submitHandler(event) {
+        event.preventDefault();
+        var container = event.target.parentNode;
+        var form = container.querySelector(".newsletter-form");
+        var formInput = container.querySelector(".newsletter-form-input");
+        var success = container.querySelector(".newsletter-success");
+        var errorContainer = container.querySelector(".newsletter-error");
+        var errorMessage = container.querySelector(".newsletter-error-message");
+        var backButton = container.querySelector(".newsletter-back-button");
+        var submitButton = container.querySelector(".newsletter-form-button");
+        var loadingButton = container.querySelector(".newsletter-loading-button");
+
+        const rateLimit = () => {
+          errorContainer.style.display = "flex";
+          errorMessage.innerText = "Too many signups, please try again in a little while";
+          submitButton.style.display = "none";
+          formInput.style.display = "none";
+          backButton.style.display = "block";
+        }
+
+        var time = new Date();
+        var timestamp = time.valueOf();
+        var previousTimestamp = localStorage.getItem("loops-form-timestamp");
+
+        if (previousTimestamp && Number(previousTimestamp) + 60000 > timestamp) {
+          rateLimit();
+          return;
+        }
+        localStorage.setItem("loops-form-timestamp", timestamp);
+
+        submitButton.style.display = "none";
+        loadingButton.style.display = "flex";
+
+        var formBody = "userGroup=landing-page&mailingLists=&email="
+          + encodeURIComponent(formInput.value);
+
+        fetch(event.target.action, {
+          method: "POST",
+          body: formBody,
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+        })
+          .then((res) => [res.ok, res.json(), res])
+          .then(([ok, dataPromise, res]) => {
+            if (ok) {
+              success.style.display = "flex";
+              form.reset();
+            } else {
+              dataPromise.then(data => {
+                errorContainer.style.display = "flex";
+                errorMessage.innerText = data.message
+                  ? data.message
+                  : res.statusText;
+              });
+            }
+          })
+          .catch(error => {
+            if (error.message === "Failed to fetch") {
+              rateLimit();
+              return;
+            }
+            errorContainer.style.display = "flex";
+            if (error.message) errorMessage.innerText = error.message;
+            localStorage.setItem("loops-form-timestamp", '');
+          })
+          .finally(() => {
+            formInput.style.display = "none";
+            loadingButton.style.display = "none";
+            backButton.style.display = "block";
+          });
+      }
+
+      function resetFormHandler(event) {
+        var container = event.target.parentNode;
+        var formInput = container.querySelector(".newsletter-form-input");
+        var success = container.querySelector(".newsletter-success");
+        var errorContainer = container.querySelector(".newsletter-error");
+        var errorMessage = container.querySelector(".newsletter-error-message");
+        var backButton = container.querySelector(".newsletter-back-button");
+        var submitButton = container.querySelector(".newsletter-form-button");
+
+        success.style.display = "none";
+        errorContainer.style.display = "none";
+        errorMessage.innerText = "Oops! Something went wrong, please try again";
+        backButton.style.display = "none";
+        formInput.style.display = "flex";
+        submitButton.style.display = "flex";
+      }
+
+      var formContainers = document.getElementsByClassName(
+        "newsletter-form-container"
+      );
+
+      for (var i = 0; i < formContainers.length; i++) {
+        var formContainer = formContainers[i];
+        var handlersAdded = formContainer.classList.contains('newsletter-handlers-added');
+        if (handlersAdded) continue;
+        formContainer
+          .querySelector(".newsletter-form")
+          .addEventListener("submit", submitHandler);
+        formContainer
+          .querySelector(".newsletter-back-button")
+          .addEventListener("click", resetFormHandler);
+
+        // Toggle active state on button when input has content
+        var formInput = formContainer.querySelector(".newsletter-form-input");
+        var submitButton = formContainer.querySelector(".newsletter-form-button");
+        var emailRegex = /^(?!\.)(?!.*\.\.)([a-z0-9_'+\-\.]*)[a-z0-9_+\-]@([a-z0-9][a-z0-9\-]*\.)+[a-z]{2,}$/i;
+
+        function updateButtonState() {
+          if (emailRegex.test(formInput.value.trim())) {
+            submitButton.classList.add("active");
+          } else {
+            submitButton.classList.remove("active");
+          }
+        }
+
+        formInput.addEventListener("input", updateButtonState);
+        updateButtonState();
+
+        formContainer.classList.add("newsletter-handlers-added");
       }
   </script>
 </body>
