@@ -209,12 +209,20 @@
         });
       }
 
-      function positionDot() {
+      function positionDot(animate = true) {
         const activeLink = toc.querySelector('a.active');
         if (activeLink) {
           toc.classList.add('has-active');
           const center = activeLink.offsetTop + activeLink.offsetHeight / 2;
+          if (!animate) {
+            toc.style.transition = 'none';
+          }
           toc.style.setProperty('--dot-top', `${center}px`);
+          if (!animate) {
+            setTimeout(() => {
+              toc.style.transition = '';
+            }, 0);
+          }
         } else {
           toc.classList.remove('has-active');
         }
@@ -243,6 +251,7 @@
 
       // Trigger once on load
       updateActive();
+      positionDot(false);
 
       // Keep the dot aligned if the layout changes
       window.addEventListener('resize', positionDot);
