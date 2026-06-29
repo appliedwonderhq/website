@@ -139,16 +139,23 @@ input {
   opacity: 1;
 }
 
-.toc a.active::after {
+.toc::after {
   content: "";
   position: absolute;
-  top: 50%;
+  top: var(--dot-top, 0);
   right: -17px;
   width: 8px;
   height: 7px;
   background: url('assets/lil-dot.svg') no-repeat center;
   background-size: contain;
   transform: translateY(-50%);
+  opacity: 0;
+  transition: top 0.3s ease, opacity 0.2s ease;
+  pointer-events: none;
+}
+
+.toc.has-active::after {
+  opacity: 1;
 }
 
 .content {
@@ -509,7 +516,8 @@ input {
     width: auto;
   }
 
-  .toc a.active::after {
+  .toc::after,
+  .toc.has-active::after {
     display: none;
   }
 

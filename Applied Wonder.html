@@ -143,10 +143,23 @@
         return href.slice(1);
       }
 
+      const toc = document.querySelector('.toc');
+
       function setActiveLink(sectionId) {
         navLinks.forEach(link => {
           link.classList.toggle('active', sectionIdFromLink(link) === sectionId);
         });
+      }
+
+      function positionDot() {
+        const activeLink = toc.querySelector('a.active');
+        if (activeLink) {
+          toc.classList.add('has-active');
+          const center = activeLink.offsetTop + activeLink.offsetHeight / 2;
+          toc.style.setProperty('--dot-top', `${center}px`);
+        } else {
+          toc.classList.remove('has-active');
+        }
       }
 
       function updateActive() {
@@ -164,6 +177,7 @@
         if (current) {
           setActiveLink(current);
         }
+        positionDot();
       }
 
       // Update on scroll
@@ -171,6 +185,9 @@
 
       // Trigger once on load
       updateActive();
+
+      // Keep the dot aligned if the layout changes
+      window.addEventListener('resize', positionDot);
     });
   </script>
 </body>
