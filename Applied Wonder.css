@@ -66,6 +66,15 @@ a {
   text-decoration: none;
 }
 
+@keyframes awshimmer {
+  0% {
+    background-position: 140% 0;
+  }
+  100% {
+    background-position: -140% 0;
+  }
+}
+
 button,
 input {
   font: inherit;
@@ -364,6 +373,23 @@ input {
 
 .app-copy p {
   font-weight: 400;
+}
+
+.soon-badge {
+  font: 500 9.5px "IBM Plex Mono", monospace;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #c2beb5;
+}
+
+.shimmer-text {
+  background: linear-gradient(90deg, #c2beb5 0%, #c2beb5 44%, #8a877e 50%, #c2beb5 56%, #c2beb5 100%);
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: awshimmer 3.8s linear infinite;
 }
 
 .spacer {
