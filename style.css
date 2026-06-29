@@ -81,6 +81,18 @@ a {
   }
 }
 
+@keyframes gradient-rotate {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 button,
 input {
   font: inherit;
@@ -237,8 +249,10 @@ input {
   border-radius: var(--radius-pill);
   opacity: 0.3;
   filter: blur(12px);
-  transform: rotate(-2.6deg) skewX(7deg);
+  transform: rotate(-0.5deg) skewX(2deg);
   background: var(--gradient-signup-glow);
+  background-size: 200% 200%;
+  animation: gradient-rotate 15s ease infinite;
 }
 
 .signup-form {
