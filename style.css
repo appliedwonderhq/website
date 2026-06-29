@@ -65,6 +65,7 @@ body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   text-rendering: geometricPrecision;
+  overflow-x: hidden;
 }
 
 a {
@@ -178,11 +179,11 @@ input {
   right: -17px;
   width: 8px;
   height: 7px;
-  background: url('assets/lil-dot.svg') no-repeat center;
-  background-size: contain;
+  background: var(--selection-color, #f6871f);
+  border-radius: 50%;
   transform: translateY(-50%);
   opacity: 0;
-  transition: top 0.3s ease, opacity 0.2s ease;
+  transition: top 0.3s ease, opacity 0.2s ease, background 0.16s ease;
   pointer-events: none;
 }
 
@@ -593,6 +594,7 @@ input {
   position: relative;
   width: 2048px;
   height: 1425px;
+  max-width: 100%;
   margin-bottom: -24px;
 }
 
