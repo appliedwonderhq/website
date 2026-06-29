@@ -156,6 +156,40 @@
   <script>
     // Scroll spy functionality for TOC
     document.addEventListener('DOMContentLoaded', function() {
+      // Drag functionality for footer images
+      const draggableImages = document.querySelectorAll('.footer-field, .footer-window, .footer-text, .footer-small');
+      let activeDrag = null;
+      let startX = 0;
+      let startY = 0;
+      let initialLeft = 0;
+      let initialTop = 0;
+
+      draggableImages.forEach(img => {
+        img.addEventListener('mousedown', function(e) {
+          activeDrag = img;
+          startX = e.clientX;
+          startY = e.clientY;
+          initialLeft = img.offsetLeft;
+          initialTop = img.offsetTop;
+          e.preventDefault();
+        });
+      });
+
+      document.addEventListener('mousemove', function(e) {
+        if (!activeDrag) return;
+        
+        const dx = e.clientX - startX;
+        const dy = e.clientY - startY;
+        
+        activeDrag.style.left = `${initialLeft + dx}px`;
+        activeDrag.style.top = `${initialTop + dy}px`;
+      });
+
+      document.addEventListener('mouseup', function() {
+        activeDrag = null;
+      });
+
+      // Scroll spy functionality for TOC
       const sections = document.querySelectorAll('section[id], div[id]');
       const navLinks = Array.from(document.querySelectorAll('.toc a')).filter(link => {
         const href = link.getAttribute('href');

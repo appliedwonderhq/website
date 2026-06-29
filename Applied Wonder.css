@@ -386,6 +386,21 @@ input {
   user-select: none;
 }
 
+.footer-collage .footer-field,
+.footer-collage .footer-window,
+.footer-collage .footer-text,
+.footer-collage .footer-small {
+  pointer-events: auto;
+  cursor: grab;
+}
+
+.footer-collage .footer-field:active,
+.footer-collage .footer-window:active,
+.footer-collage .footer-text:active,
+.footer-collage .footer-small:active {
+  cursor: grabbing;
+}
+
 .footer-field {
   left: 0;
   top: 220px;
