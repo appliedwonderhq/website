@@ -21,14 +21,14 @@
   --font-serif: "New York", "Iowan Old Style", Georgia, serif;
 
   --page-max-width: 1440px;
-  --content-width: 881px;
+  --content-width: 528px;
   --apps-width: 879px;
   --toc-width: 141px;
 
   --space-layout-gap: 67px;
   --space-section-gap: 108px;
   --space-app-row-gap: 20px;
-  --space-app-list-gap: 45px;
+  --space-app-list-gap: 21px;
   --space-heading-gap: 18px;
 
   --radius-pill: 54px;
@@ -38,11 +38,11 @@
     inset 0 -0.88px 1.17px var(--color-signup-shadow),
     inset 0 0 1.17px var(--color-icon-highlight);
 
-  --text-body-size: 28px;
-  --text-body-line: 42px;
-  --text-heading-size: 24px;
-  --text-heading-line: 36px;
-  --text-heading-tracking: -0.48px;
+  --text-body-size: 14px;
+  --text-body-line: 1.5;
+  --text-heading-size: 13px;
+  --text-heading-line: 1.5;
+  --text-heading-tracking: -0.01em;
 }
 
 html {
@@ -120,10 +120,10 @@ input {
   flex-direction: column;
   align-items: flex-end;
   gap: 9px;
-  padding-top: 12px;
-  font-size: 16px;
-  line-height: 19px;
-  letter-spacing: -0.32px;
+  padding-top: 4px;
+  font-size: 12px;
+  line-height: 1.33;
+  letter-spacing: -0.01em;
   text-align: right;
 }
 
@@ -190,7 +190,6 @@ input {
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 809px;
   overflow: hidden;
 }
 
@@ -204,34 +203,33 @@ input {
 
 .signup-wrap {
   position: relative;
-  width: 639px;
-  max-width: calc(100vw - 40px);
-  height: 83px;
+  width: 100%;
+  max-width: var(--content-width);
+  height: 48px;
 }
 
 .signup-glow {
   position: absolute;
-  left: 4px;
-  top: 26px;
-  width: 630px;
-  max-width: calc(100% - 8px);
-  height: 55px;
+  left: 2px;
+  top: 12px;
+  width: calc(100% - 4px);
+  height: 32px;
   border-radius: var(--radius-pill);
   opacity: 0.3;
-  filter: blur(16px);
+  filter: blur(12px);
   transform: rotate(-2.6deg) skewX(7deg);
   background: var(--gradient-signup-glow);
 }
 
 .signup-form {
   position: absolute;
-  left: 3px;
-  top: 2px;
+  left: 1px;
+  top: 1px;
   display: flex;
   align-items: center;
-  width: calc(100% - 7px);
-  height: 77px;
-  padding: 0 13px 0 34px;
+  width: calc(100% - 2px);
+  height: 44px;
+  padding: 0 12px 0 16px;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-pill);
   background: var(--color-page);
@@ -259,8 +257,8 @@ input {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 57px;
-  height: 57px;
+  width: 36px;
+  height: 36px;
   border: 0;
   border-radius: 50%;
   background: transparent;
@@ -269,8 +267,8 @@ input {
 
 .signup-form button img {
   display: block;
-  width: 57px;
-  height: 57px;
+  width: 36px;
+  height: 36px;
 }
 
 .apps {
@@ -303,7 +301,7 @@ input {
   display: flex;
   flex-direction: column;
   gap: var(--space-app-list-gap);
-  margin-top: 57px;
+  margin-top: 32px;
 }
 
 .app-row {
@@ -315,9 +313,9 @@ input {
 
 .app-icon-shell {
   position: relative;
-  flex: 0 0 100px;
-  width: 100px;
-  height: 100px;
+  flex: 0 0 65px;
+  width: 65px;
+  height: 65px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -327,19 +325,19 @@ input {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100px;
-  height: 100px;
+  width: 65px;
+  height: 65px;
 }
 
 .soft-icon img {
   display: block;
-  width: 100px;
-  height: 100px;
+  width: 65px;
+  height: 65px;
 }
 
 .mnemo-icon {
-  width: 100px;
-  height: 100px;
+  width: 65px;
+  height: 65px;
 }
 
 .app-copy {
@@ -369,7 +367,7 @@ input {
 }
 
 .spacer {
-  height: 300px;
+  height: 100px;
 }
 
 .footer-collage {
@@ -487,11 +485,11 @@ input {
     --space-layout-gap: 36px;
     --space-section-gap: 72px;
     --space-app-list-gap: 32px;
-    --text-body-size: 22px;
-    --text-body-line: 33px;
-    --text-heading-size: 18px;
-    --text-heading-line: 27px;
-    --text-heading-tracking: -0.36px;
+    --text-body-size: 14px;
+    --text-body-line: 1.5;
+    --text-heading-size: 13px;
+    --text-heading-line: 1.5;
+    --text-heading-tracking: -0.01em;
     --radius-app-icon: 13px;
   }
 
@@ -540,7 +538,7 @@ input {
     width: 100%;
     max-width: none;
   }
-
+/* 
   .engraving-stage {
     height: 460px;
   }
@@ -551,7 +549,7 @@ input {
 
   .signup-glow {
     height: 44px;
-  }
+  } */
 
   .signup-form {
     height: 60px;
@@ -578,20 +576,20 @@ input {
   }
 
   .app-icon-shell {
-    flex-basis: 100px;
-    width: 100px;
-    height: 100px;
+    flex-basis: 65px;
+    width: 65px;
+    height: 65px;
   }
 
   .soft-icon,
   .mnemo-icon {
-    width: 100px;
-    height: 100px;
+    width: 65px;
+    height: 65px;
   }
 
   .soft-icon img {
-    width: 100px;
-    height: 100px;
+    width: 65px;
+    height: 65px;
   }
 
   .spacer {
