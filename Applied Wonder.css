@@ -16,6 +16,12 @@
   --color-icon-glow: rgba(255, 255, 255, 0.2);
   --color-transparent: rgba(255, 255, 255, 0);
   --gradient-signup-glow: linear-gradient(90deg, #f6871f, #f0483e, #f6977b, #fdb515, #a68d62, #4e65af, #055b46);
+  --color-button-inactive-start: #CACACA;
+  --color-button-inactive-end: #B8B8B8;
+  --color-button-active-start: #F6881F;
+  --color-button-active-end: #EB7809;
+  --shadow-button-inactive: 0 4px 8px rgba(202, 202, 202, 0.25);
+  --shadow-button-active: 0 4px 8px rgba(246, 136, 31, 0.25);
 
   --font-sans: "SF Compact Text", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-serif: "New York", "Iowan Old Style", Georgia, serif;
@@ -238,7 +244,9 @@ input {
   align-items: center;
   width: calc(100% - 2px);
   height: 44px;
-  padding: 0 12px 0 16px;
+  padding: 0;
+  padding-left: 16px;
+  padding-right: 8px;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-pill);
   background: var(--color-page);
@@ -270,14 +278,17 @@ input {
   height: 36px;
   border: 0;
   border-radius: 50%;
-  background: transparent;
+  background: transparent url('assets/button.svg') center/contain no-repeat;
   cursor: pointer;
+  box-shadow: var(--shadow-button-inactive);
+  transition: background-image 160ms ease, box-shadow 160ms ease;
 }
 
-.signup-form button img {
-  display: block;
-  width: 36px;
-  height: 36px;
+.signup-form button:hover,
+.signup-form button:focus {
+  /* background-image: url('assets/button-active.svg'); */
+  color: var(--shadow-button-active);
+  box-shadow: var(--shadow-button-active);
 }
 
 .apps {
