@@ -75,37 +75,33 @@ input {
   width: min(100%, var(--page-max-width));
   min-height: 100vh;
   margin: 0 auto;
-  overflow: hidden;
   background: var(--color-page);
 }
 
 .brand {
   position: relative;
   width: min(490px, calc(100vw - 48px));
-  height: 160px;
   margin-left: clamp(24px, 10vw, 144px);
   padding-top: 139px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.brand-spacer {
+  flex: 0 0 var(--toc-width);
+  width: var(--toc-width);
 }
 
 .brand img {
-  position: absolute;
   display: block;
   pointer-events: none;
   user-select: none;
 }
 
 .brand-applied {
-  left: 1px;
-  top: 139px;
   width: 296px;
   height: auto;
-}
-
-.brand-wonder {
-  left: 133px;
-  top: 208px;
-  width: 358px;
-  height: auto;
+  margin-left: -80px;
 }
 
 .layout {
@@ -146,12 +142,13 @@ input {
 .toc a:first-child::after {
   content: "";
   position: absolute;
-  top: 6px;
+  top: 50%;
   right: -17px;
   width: 8px;
   height: 7px;
   background: url('assets/lil-dot.svg') no-repeat center;
   background-size: contain;
+  transform: translateY(-50%);
 }
 
 .content {
@@ -421,13 +418,6 @@ input {
   height: auto;
 }
 
-.footer-logo-word {
-  left: 249px;
-  top: 86px;
-  width: 442px;
-  height: auto;
-}
-
 @media (max-width: 1120px) {
   :root {
     --space-layout-gap: 32px;
@@ -483,10 +473,6 @@ input {
     --radius-app-icon: 13px;
   }
 
-  .page {
-    overflow: hidden;
-  }
-
   .brand {
     width: min(330px, calc(100vw - 40px));
     height: 110px;
@@ -495,14 +481,7 @@ input {
   }
 
   .brand-applied {
-    top: 42px;
     width: 200px;
-  }
-
-  .brand-wonder {
-    left: 88px;
-    top: 88px;
-    width: 240px;
   }
 
   .layout {
