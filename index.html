@@ -8,10 +8,14 @@
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
   <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16-dark.png" media="(prefers-color-scheme: dark)">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32-dark.png" media="(prefers-color-scheme: dark)">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="192x192" href="assets/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/android-chrome-192x192-dark.png" media="(prefers-color-scheme: dark)">
   <link rel="icon" type="image/png" sizes="512x512" href="assets/android-chrome-512x512.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="assets/android-chrome-512x512-dark.png" media="(prefers-color-scheme: dark)">
   
   <!-- Open Graph -->
   <meta property="og:title" content="Applied Wonder">
@@ -197,6 +201,30 @@
   </div>
 
   <script>
+    // Random selection color from gradient - changes on each selection
+    (function() {
+      const gradientColors = ['#f6871f', '#f0483e', '#f6977b', '#fdb515', '#a68d62', '#4e65af', '#055b46'];
+      const usedColors = new Set();
+
+      function getRandomColor() {
+        const availableColors = gradientColors.filter(color => !usedColors.has(color));
+        if (availableColors.length === 0) {
+          usedColors.clear();
+          return gradientColors[Math.floor(Math.random() * gradientColors.length)];
+        }
+        const color = availableColors[Math.floor(Math.random() * availableColors.length)];
+        usedColors.add(color);
+        return color;
+      }
+
+      function updateSelectionColor() {
+        const randomColor = getRandomColor();
+        document.documentElement.style.setProperty('--selection-color', randomColor);
+      }
+
+      document.addEventListener('selectstart', updateSelectionColor);
+    })();
+
     // Scroll spy functionality for TOC
     document.addEventListener('DOMContentLoaded', function() {
       // Drag functionality for footer images

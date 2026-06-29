@@ -86,6 +86,11 @@ input {
   font: inherit;
 }
 
+::selection {
+  background: var(--selection-color, #f6871f);
+  color: var(--selection-text-color, #ffffff);
+}
+
 .page {
   width: min(100%, var(--page-max-width));
   min-height: 100vh;
