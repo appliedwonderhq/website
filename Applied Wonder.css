@@ -146,13 +146,12 @@ input {
 .toc a:first-child::after {
   content: "";
   position: absolute;
-  top: 7px;
+  top: 6px;
   right: -17px;
-  width: 14px;
+  width: 8px;
   height: 7px;
-  background: var(--color-text);
-  clip-path: polygon(0 15%, 100% 50%, 0 85%, 22% 50%);
-  transform: skewX(-28deg);
+  background: url('assets/lil-dot.svg') no-repeat center;
+  background-size: contain;
 }
 
 .content {
