@@ -172,7 +172,6 @@ input {
   line-height: var(--text-body-line);
   font-weight: 400;
   letter-spacing: 0;
-  white-space: pre-wrap;
 }
 
 .visual-signup {
@@ -316,35 +315,28 @@ input {
   flex: 0 0 100px;
   width: 100px;
   height: 100px;
-}
-
-.soft-icon {
-  position: absolute;
-  left: 10px;
-  top: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 80px;
-  height: 80px;
-  border-radius: var(--radius-app-icon);
-  background: radial-gradient(circle at 50% 0%, var(--color-icon-glow), var(--color-transparent) 72%),
-    linear-gradient(180deg, var(--color-icon-start) 0%, var(--color-icon-end) 100%);
-  box-shadow: var(--shadow-app-icon);
+}
+
+.soft-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
 }
 
 .soft-icon img {
   display: block;
-  max-width: 64px;
-  max-height: 60px;
+  width: 100px;
+  height: 100px;
 }
 
 .mnemo-icon {
-  position: absolute;
-  left: 10px;
-  top: 10px;
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
 }
 
 .app-copy {
@@ -584,23 +576,20 @@ input {
   }
 
   .app-icon-shell {
-    flex-basis: 72px;
-    width: 72px;
-    height: 72px;
+    flex-basis: 100px;
+    width: 100px;
+    height: 100px;
   }
 
   .soft-icon,
   .mnemo-icon {
-    left: 7px;
-    top: 7px;
-    width: 58px;
-    height: 58px;
-    border-radius: var(--radius-app-icon);
+    width: 100px;
+    height: 100px;
   }
 
   .soft-icon img {
-    max-width: 44px;
-    max-height: 42px;
+    width: 100px;
+    height: 100px;
   }
 
   .spacer {
