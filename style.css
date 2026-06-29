@@ -680,6 +680,26 @@ input {
   }
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-page: #1a1a1a;
+    --color-text: #e8e8e0;
+    --color-rule: #3a3a3a;
+    --color-border: #2a2a2a;
+    --color-icon-start: #2a2a28;
+    --color-icon-end: #1f1f1e;
+    --color-signup-placeholder: rgba(255, 255, 255, 0.4);
+    --color-signup-shadow: rgba(0, 0, 0, 0.3);
+    --color-icon-shadow: rgba(0, 0, 0, 0.6);
+    --color-icon-highlight: rgba(255, 255, 255, 0.1);
+    --color-icon-glow: rgba(255, 255, 255, 0.05);
+    --color-transparent: rgba(0, 0, 0, 0);
+    --color-button-inactive-start: #4a4a4a;
+    --color-button-inactive-end: #3a3a3a;
+    --shadow-button-inactive: 0 4px 8px rgba(0, 0, 0, 0.4);
+  }
+}
+
 @media (max-width: 760px) {
   :root {
     --space-layout-gap: 36px;
