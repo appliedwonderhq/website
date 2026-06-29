@@ -134,12 +134,12 @@ input {
   transition: opacity 160ms ease;
 }
 
-.toc a:first-child,
+.toc a.active,
 .toc a:hover {
   opacity: 1;
 }
 
-.toc a:first-child::after {
+.toc a.active::after {
   content: "";
   position: absolute;
   top: 50%;
@@ -482,6 +482,7 @@ input {
 
   .brand-applied {
     width: 200px;
+    margin-left: 0;
   }
 
   .layout {
@@ -508,7 +509,7 @@ input {
     width: auto;
   }
 
-  .toc a:first-child::after {
+  .toc a.active::after {
     display: none;
   }
 

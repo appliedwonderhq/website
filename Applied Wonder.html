@@ -17,11 +17,10 @@
 
     <div class="layout">
       <nav class="toc" aria-label="Sections">
-        <a href="#apps">Apps</a>
+        <a href="#about">About</a>
         <a href="#join">Newsletter</a>
-        <a href="#faq">FAQ</a>
+        <a href="#apps">Apps</a>
         <a href="https://x.com/appliedwonder" target="_blank">X / Twitter</a>
-        <a href="#join">Join</a>
       </nav>
 
       <main class="content">
@@ -127,6 +126,53 @@
       </main>
     </div>
   </div>
+
+  <script>
+    // Scroll spy functionality for TOC
+    document.addEventListener('DOMContentLoaded', function() {
+      const sections = document.querySelectorAll('section[id], div[id]');
+      const navLinks = Array.from(document.querySelectorAll('.toc a')).filter(link => {
+        const href = link.getAttribute('href');
+        return href && href.startsWith('#');
+      });
+
+      function sectionIdFromLink(link) {
+        const href = link.getAttribute('href') || '';
+        return href.slice(1);
+      }
+
+      function setActiveLink(sectionId) {
+        navLinks.forEach(link => {
+          link.classList.toggle('active', sectionIdFromLink(link) === sectionId);
+        });
+      }
+
+      function updateActive() {
+        let current = '';
+        const scrollPosition = window.scrollY + 150;
+
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.offsetHeight;
+          if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+            current = section.getAttribute('id');
+          }
+        });
+
+        if (current) {
+          setActiveLink(current);
+        } else if (navLinks.length > 0) {
+          setActiveLink(sectionIdFromLink(navLinks[0]));
+        }
+      }
+
+      // Update on scroll
+      window.addEventListener('scroll', updateActive);
+
+      // Trigger once on load
+      updateActive();
+    });
+  </script>
 </body>
 
 </html>
