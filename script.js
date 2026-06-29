@@ -1,17 +1,22 @@
 /**
+ * Color Palette
+ * 6-color array used for TOC elements and selection highlight
+ */
+const colorPalette = ['#f6871f', '#f0483e', '#f6977b', '#fdb515', '#a68d62', '#4e65af'];
+
+/**
  * Random Selection Color
  * Changes the text selection highlight color to a random color from the brand palette
  * each time the user starts a selection. Ensures colors aren't repeated until all are used.
  */
 (function() {
-  const gradientColors = ['#f6871f', '#f0483e', '#f6977b', '#fdb515', '#a68d62', '#4e65af', '#055b46'];
   const usedColors = new Set();
 
   function getRandomColor() {
-    const availableColors = gradientColors.filter(color => !usedColors.has(color));
+    const availableColors = colorPalette.filter(color => !usedColors.has(color));
     if (availableColors.length === 0) {
       usedColors.clear();
-      return gradientColors[Math.floor(Math.random() * gradientColors.length)];
+      return colorPalette[Math.floor(Math.random() * colorPalette.length)];
     }
     const color = availableColors[Math.floor(Math.random() * availableColors.length)];
     usedColors.add(color);
@@ -84,6 +89,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   const toc = document.querySelector('.toc');
+  const tocDot = document.querySelector('.toc-dot');
 
   /**
    * Sets the active navigation link based on the current section ID
@@ -92,6 +98,11 @@ document.addEventListener('DOMContentLoaded', function() {
     navLinks.forEach(link => {
       link.classList.toggle('active', sectionIdFromLink(link) === sectionId);
     });
+    
+    // Update TOC color based on active link index
+    const activeLinkIndex = navLinks.findIndex(link => sectionIdFromLink(link) === sectionId);
+    const newColor = activeLinkIndex !== -1 ? colorPalette[activeLinkIndex] : colorPalette[0];
+    document.documentElement.style.setProperty('--toc-color', newColor);
   }
 
   /**
@@ -104,12 +115,12 @@ document.addEventListener('DOMContentLoaded', function() {
       toc.classList.add('has-active');
       const center = activeLink.offsetTop + activeLink.offsetHeight / 2;
       if (!animate) {
-        toc.style.transition = 'none';
+        tocDot.style.transition = 'none';
       }
-      toc.style.setProperty('--dot-top', `${center}px`);
+      tocDot.style.top = `${center}px`;
       if (!animate) {
         setTimeout(() => {
-          toc.style.transition = '';
+          tocDot.style.transition = '';
         }, 0);
       }
     } else {

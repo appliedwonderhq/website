@@ -15,13 +15,14 @@
   --color-icon-highlight: rgba(255, 255, 255, 0.8);
   --color-icon-glow: rgba(255, 255, 255, 0.2);
   --color-transparent: rgba(255, 255, 255, 0);
-  --gradient-signup-glow: linear-gradient(90deg, #f6871f, #f0483e, #f6977b, #fdb515, #a68d62, #4e65af, #055b46);
+  --gradient-signup-glow: linear-gradient(90deg, #f6871f, #f0483e, #f6977b, #fdb515, #a68d62, #4e65af);
   --color-button-inactive-start: #CACACA;
   --color-button-inactive-end: #B8B8B8;
   --color-button-active-start: #F6881F;
   --color-button-active-end: #EB7809;
   --shadow-button-inactive: 0 4px 8px rgba(202, 202, 202, 0.25);
   --shadow-button-active: 0 4px 8px rgba(246, 136, 31, 0.25);
+  --toc-color: #f6871f;
 
   --font-sans: "SF Compact Text", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-serif: "New York", "Iowan Old Style", Georgia, serif;
@@ -172,22 +173,19 @@ input {
   opacity: 1;
 }
 
-.toc::after {
-  content: "";
+.toc-dot {
   position: absolute;
   top: var(--dot-top, 0);
   right: -17px;
-  width: 8px;
-  height: 7px;
-  background: var(--selection-color, #f6871f);
+  color: var(--toc-color);
   border-radius: 50%;
   transform: translateY(-50%);
   opacity: 0;
-  transition: top 0.3s ease, opacity 0.2s ease, background 0.16s ease;
+  transition: top 0.3s ease, opacity 0.2s ease, color 0.16s ease;
   pointer-events: none;
 }
 
-.toc.has-active::after {
+.toc.has-active .toc-dot {
   opacity: 1;
 }
 
@@ -718,6 +716,7 @@ input {
     --color-button-inactive-start: #4a4a4a;
     --color-button-inactive-end: #3a3a3a;
     --shadow-button-inactive: 0 4px 8px rgba(0, 0, 0, 0.4);
+    --toc-color: #f6871f;
   }
 }
 
