@@ -10,7 +10,7 @@
   --color-icon-start: #fcfbf9;
   --color-icon-end: #e7e4df;
   --color-signup-placeholder: rgba(0, 0, 0, 0.34);
-  --color-signup-shadow: rgba(0, 0, 0, 0.1);
+  --color-signup-shadow: rgba(0, 0, 0, 0.07);
   --color-icon-shadow: rgba(0, 0, 0, 0.3);
   --color-icon-highlight: rgba(255, 255, 255, 0.8);
   --color-icon-glow: rgba(255, 255, 255, 0.2);
@@ -40,7 +40,7 @@
 
   --radius-pill: 54px;
   --radius-app-icon: 18px;
-  --shadow-signup: 0 4px 12.2px var(--color-signup-shadow);
+  --shadow-signup: 0 4px 4px var(--color-signup-shadow);
   --shadow-app-icon: 0 1.95px 3.91px var(--color-icon-shadow),
     inset 0 -0.88px 1.17px var(--color-signup-shadow),
     inset 0 0 1.17px var(--color-icon-highlight);
@@ -247,7 +247,7 @@ input {
   height: 32px;
   border-radius: var(--radius-pill);
   opacity: 0.3;
-  filter: blur(12px);
+  filter: blur(4px);
   transform: rotate(-0.5deg) skewX(2deg);
   background: var(--gradient-signup-glow);
   background-size: 200% 200%;
