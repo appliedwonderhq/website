@@ -142,7 +142,7 @@ input {
   display: flex;
   align-items: flex-start;
   gap: var(--space-layout-gap);
-  margin-top: 34px;
+  margin-top: 60px;
   padding-left: 76px;
 }
 
@@ -166,17 +166,6 @@ input {
   width: var(--toc-width);
   opacity: 0.4;
   transition: opacity 160ms ease;
-}
-
-.toc-section {
-  width: var(--toc-width);
-  font-weight: 700;
-  opacity: 0.6;
-}
-
-.toc-nested {
-  margin-left: 12px;
-  width: calc(var(--toc-width) - 12px);
 }
 
 .toc a.active,
@@ -246,7 +235,7 @@ input {
 .signup-wrap {
   position: relative;
   width: 100%;
-  max-width: var(--content-width);
+  max-width: 400px;
   height: 48px;
 }
 
@@ -761,9 +750,9 @@ input {
     --space-layout-gap: 36px;
     --space-section-gap: 72px;
     --space-app-list-gap: 32px;
-    --text-body-size: 14px;
+    --text-body-size: 16px;
     --text-body-line: 1.5;
-    --text-heading-size: 13px;
+    --text-heading-size: 15px;
     --text-heading-line: 1.5;
     --text-heading-tracking: -0.01em;
     --radius-app-icon: 13px;
@@ -806,15 +795,6 @@ input {
   }
 
   .toc a {
-    width: auto;
-  }
-
-  .toc-section {
-    width: auto;
-  }
-
-  .toc-nested {
-    margin-left: 12px;
     width: auto;
   }
 
