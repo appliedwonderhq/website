@@ -52,9 +52,10 @@
     <div class="layout">
       <nav class="toc" aria-label="Sections">
         <a class="active" href="#about">About</a>
-        <a href="#join">Newsletter</a>
-        <a href="#apps">Apps</a>
+        <span class="toc-section">Apps</span>
+        <a href="#thats-right" class="toc-nested">That's Right</a>
         <a href="#faq">FAQ</a>
+        <a href="#join">Newsletter</a>
         <a href="https://x.com/AppliedWndrLab" target="_blank">X / Twitter</a>
         <span class="toc-dot">
           <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -66,9 +67,61 @@
 
       <main class="content">
         <section class="about" id="about" aria-label="About">
-          <p class="bio">Applied Wonder is a lab in the original sense — a group of curious people working on problems
-            that annoy us personally. <br /> <br /> We’re focused on what makes everyday life unnecessarily hard. We use
-            AI when it's free and useful, pay fairly when it isn't, and ignore it when it gets in the way.</p>
+          <p class="bio">Applied Wonder is a workshop of curious people building things we wish existed.<br/><br/>
+We focus on what makes life unnecessarily hard and try to remove it, using free local AI where we can, charging fairly when we can't.<br/><br/>No grand agenda. Just good work on problems worth solving.
+</p>
+        </section>
+
+        <section class="apps" id="apps" aria-label="Apps">
+          <div class="apps-heading">
+            <h2>Apps</h2>
+            <span></span>
+          </div>
+
+          <div class="app-list">
+            <article class="app-row" id="thats-right">
+              <div class="app-icon-shell" aria-hidden="true">
+                <div class="soft-icon">
+                  <picture>
+                    <source srcset="assets/AppIcon-thatsright.webp" type="image/webp">
+                    <img src="assets/AppIcon-thatsright.png" alt="">
+                  </picture>
+                </div>
+              </div>
+              <div class="app-copy">
+                <h3>That’s Right</h3>
+                <p class="shimmer-text"><span id="hint-text">Next up: the thing you do every morning, minus the
+                    friction.</span></p>
+              </div>
+              <span class="soon-badge">Soon</span>
+            </article>
+          </div>
+        </section>
+
+        <section class="faq" id="faq" aria-label="FAQ">
+          <div class="faq-heading">
+            <h2>FAQ</h2>
+            <span></span>
+          </div>
+
+          <div class="faq-list">
+            <div class="faq-item">
+              <h3>Who?</h3>
+              <p>A small group of curious people who would rather let the work speak. Simply building things.</p>
+            </div>
+
+            <div class="faq-item">
+              <h3>Why?</h3>
+              <p>To tinker, explore, and reconnect with what we actually need in our daily lives and how AI can really
+                help.</p>
+            </div>
+
+            <div class="faq-item">
+              <h3>When?</h3>
+              <p>No agenda. That's the point. A product is ready when it's ready — our development cycle is free from
+                corporate deadlines and market expectations. Not from our users.</p>
+            </div>
+          </div>
         </section>
 
         <section class="visual-signup" id="join" aria-label="Newsletter signup">
@@ -110,89 +163,6 @@
               <p class="newsletter-error-message">Oops! Something went wrong, please try again</p>
             </div>
             <button class="newsletter-back-button" type="button">&larr; Back</button>
-          </div>
-        </section>
-
-        <section class="apps" id="apps" aria-label="Apps">
-          <div class="apps-heading">
-            <h2>Apps</h2>
-            <span></span>
-          </div>
-
-          <div class="app-list">
-            <article class="app-row">
-              <div class="app-icon-shell" aria-hidden="true">
-                <div class="soft-icon">
-                  <picture>
-                    <source srcset="assets/AppIcon-thatsright.webp" type="image/webp">
-                    <img src="assets/AppIcon-thatsright.png" alt="">
-                  </picture>
-                </div>
-              </div>
-              <div class="app-copy">
-                <h3>That’s Right</h3>
-                <p class="shimmer-text"><span id="hint-text">Next up: the thing you do every morning, minus the
-                    friction.</span></p>
-              </div>
-              <span class="soon-badge">Soon</span>
-            </article>
-
-            <article class="app-row">
-              <div class="app-icon-shell" aria-hidden="true">
-                <picture>
-                  <source srcset="assets/AppIcon-mnemo.webp" type="image/webp">
-                  <img class="mnemo-icon" src="assets/AppIcon-mnemo.png" alt="">
-                </picture>
-              </div>
-              <div class="app-copy">
-                <h3>Mnemo</h3>
-                <p class="shimmer-text"><span id="mnemo-hint">The conversation you had last month, still there when you
-                    need it.</span></p>
-              </div>
-              <span class="soon-badge">Soon</span>
-            </article>
-
-            <article class="app-row">
-              <div class="app-icon-shell" aria-hidden="true">
-                <div class="soft-icon">
-                  <picture>
-                    <source srcset="assets/AppIcon-hop.webp" type="image/webp">
-                    <img src="assets/AppIcon-hop.png" alt="">
-                  </picture>
-                </div>
-              </div>
-              <div class="app-copy">
-                <h3>Hop!</h3>
-                <p class="shimmer-text"><span id="hop-hint">The routine that actually sticks.</span></p>
-              </div>
-              <span class="soon-badge">Soon</span>
-            </article>
-          </div>
-        </section>
-
-        <section class="faq" id="faq" aria-label="FAQ">
-          <div class="faq-heading">
-            <h2>FAQ</h2>
-            <span></span>
-          </div>
-
-          <div class="faq-list">
-            <div class="faq-item">
-              <h3>Who?</h3>
-              <p>A small group of curious people who would rather let the work speak. Simply building things.</p>
-            </div>
-
-            <div class="faq-item">
-              <h3>Why?</h3>
-              <p>To tinker, explore, and reconnect with what we actually need in our daily lives and how AI can really
-                help.</p>
-            </div>
-
-            <div class="faq-item">
-              <h3>When?</h3>
-              <p>No agenda. That's the point. A product is ready when it's ready — our development cycle is free from
-                corporate deadlines and market expectations. Not from our users.</p>
-            </div>
           </div>
         </section>
 
