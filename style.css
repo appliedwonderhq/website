@@ -208,6 +208,50 @@ input {
   letter-spacing: 0;
 }
 
+.app-signup {
+  margin-top: 32px;
+  padding-top: 32px;
+  border-top: 1px solid var(--color-border);
+}
+
+.app-signup-heading {
+  width: 100%;
+  margin: 0 0 16px 0;
+  font-family: var(--font-serif);
+  font-size: var(--text-body-size);
+  line-height: var(--text-body-line);
+  font-weight: 400;
+  letter-spacing: 0;
+  color: var(--color-text);
+}
+
+.app-signup-toggle {
+  width: 100%;
+  padding: 12px 16px;
+  background: var(--color-page);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-serif);
+  font-size: var(--text-body-size);
+  line-height: var(--text-body-line);
+  color: var(--color-text);
+  cursor: pointer;
+  transition: all 160ms ease;
+}
+
+.app-signup-toggle:hover {
+  border-color: var(--color-text);
+}
+
+.app-signup-expanded {
+  display: none;
+  margin-top: 16px;
+}
+
+.app-signup-expanded.active {
+  display: block;
+}
+
 .visual-signup {
   display: flex;
   flex-direction: column;
@@ -437,8 +481,8 @@ input {
 
 .apps-heading span {
   flex: 1;
-  height: 2px;
-  background: var(--color-rule);
+  height: 1px;
+  background: var(--color-border);
 }
 
 .app-list {
@@ -556,8 +600,8 @@ input {
 
 .faq-heading span {
   flex: 1;
-  height: 2px;
-  background: var(--color-rule);
+  height: 1px;
+  background: var(--color-border);
 }
 
 .faq-list {

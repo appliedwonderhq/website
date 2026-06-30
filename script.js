@@ -354,3 +354,24 @@ function submitHandler(event) {
 
     formContainer.classList.add("newsletter-handlers-added");
   }
+
+  /**
+   * App Signup Toggle Handler
+   * Handles the expand/collapse functionality for the app newsletter signup form
+   */
+  var appSignupToggle = document.getElementById('app-signup-toggle');
+  var appSignupForm = document.getElementById('app-signup-form');
+
+  if (appSignupToggle && appSignupForm) {
+    appSignupToggle.addEventListener('click', function() {
+      appSignupForm.classList.toggle('active');
+      if (appSignupForm.classList.contains('active')) {
+        appSignupForm.style.display = 'block';
+        setTimeout(() => {
+          appSignupForm.querySelector('.newsletter-form-input').focus();
+        }, 100);
+      } else {
+        appSignupForm.style.display = 'none';
+      }
+    });
+  }
