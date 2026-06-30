@@ -11,7 +11,7 @@
   --color-icon-end: #e7e4df;
   --color-signup-placeholder: rgba(0, 0, 0, 0.34);
   --color-signup-shadow: rgba(0, 0, 0, 0.1);
-  --color-icon-shadow: rgba(0, 0, 0, 0.4);
+  --color-icon-shadow: rgba(0, 0, 0, 0.3);
   --color-icon-highlight: rgba(255, 255, 255, 0.8);
   --color-icon-glow: rgba(255, 255, 255, 0.2);
   --color-transparent: rgba(255, 255, 255, 0);
@@ -474,18 +474,12 @@ input {
   justify-content: center;
 }
 
-.soft-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 65px;
-  height: 65px;
-}
-
-.soft-icon img {
+.app-icon {
   display: block;
   width: 65px;
   height: 65px;
+  border-radius: var(--radius-app-icon);
+  box-shadow: var(--shadow-app-icon);
 }
 
 .mnemo-icon {
