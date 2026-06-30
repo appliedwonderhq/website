@@ -564,6 +564,15 @@ input {
   color: #c2beb5;
 }
 
+.notify-badge {
+  cursor: pointer;
+  transition: opacity 160ms ease;
+}
+
+.notify-badge:hover {
+  opacity: 0.8;
+}
+
 .shimmer-text {
   background: linear-gradient(90deg, #c2beb5 0%, #c2beb5 44%, #8a877e 50%, #c2beb5 56%, #c2beb5 100%);
   background-size: 220% 100%;

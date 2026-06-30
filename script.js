@@ -375,3 +375,21 @@ function submitHandler(event) {
       }
     });
   }
+
+  /**
+   * Notify Badge Handler
+   * Handles scrolling to the newsletter signup when the notify badge is clicked
+   */
+  var notifyBadge = document.getElementById('notify-badge');
+  var newsletterInput = document.querySelector('.newsletter-form-input');
+
+  if (notifyBadge && newsletterInput) {
+    notifyBadge.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      newsletterInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      setTimeout(() => {
+        newsletterInput.focus();
+      }, 300);
+    });
+  }
