@@ -624,25 +624,25 @@ input {
 .footer-field {
   left: 0;
   top: 220px;
-  width: 2048px;
-  height: 1205px;
-  object-fit: cover;
+  width: 2701px;
+  height: 1494px;
+  object-fit: contain;
 }
 
 .footer-window {
   left: 755px;
   top: 0;
-  width: 766px;
-  height: 466px;
-  object-fit: cover;
+  width: 1032px;
+  height: 576px;
+  object-fit: contain;
 }
 
 .footer-text {
   left: 287px;
   top: 357px;
-  width: 768px;
-  height: 534px;
-  object-fit: cover;
+  width: 556px;
+  height: 261px;
+  object-fit: contain;
 }
 
 .footer-small {
