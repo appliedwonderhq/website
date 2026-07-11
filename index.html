@@ -5,6 +5,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Applied Wonder</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,500;0,600;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
   <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
@@ -40,175 +45,136 @@
 </head>
 
 <body>
-  <div class="page">
-    <header class="brand" aria-label="Applied Wonder">
-      <div class="brand-spacer"></div>
-      <picture>
-        <source srcset="assets/applied-logo-white.svg" media="(prefers-color-scheme: dark)">
-        <img class="brand-applied" src="assets/applied-logo.svg" alt="">
-      </picture>
+  <main class="site">
+    <!-- HERO -->
+    <header class="hero" aria-label="Applied Wonder">
+      <canvas class="hero-canvas" data-grid-hero data-style="dots" data-cell="1.5"
+        data-src="assets/landscape-engraving.webp"></canvas>
+      <div class="hero-vignette"></div>
+      <div class="hero-inner">
+        <div class="hero-kicker">Est. MMXXVI &nbsp;&middot;&nbsp; A working cabinet</div>
+        <div class="wordmark" data-wordmark>
+          <img data-l data-g="ap" src="assets/logo/AP-A.png" alt="A" style="left:0%;top:8.82%;width:11.07%;">
+          <img data-l data-g="ap" src="assets/logo/AP-p1.png" alt="p" style="left:9.48%;top:25.42%;width:11.46%;">
+          <img data-l data-g="ap" src="assets/logo/AP-p2.png" alt="p" style="left:18.1%;top:25.42%;width:11.46%;">
+          <img data-l data-g="ap" src="assets/logo/AP-l.png" alt="l" style="left:28.77%;top:8.82%;width:5.95%;">
+          <img data-l data-g="ap" src="assets/logo/AP-i.png" alt="i" style="left:33.48%;top:7.34%;width:5.91%;">
+          <img data-l data-g="ap" src="assets/logo/AP-e.png" alt="e" style="left:38.07%;top:26.08%;width:7.49%;">
+          <img data-l data-g="ap" src="assets/logo/AP-d.png" alt="d" style="left:45.56%;top:8.82%;width:10.27%;">
+          <img data-l data-g="wo" src="assets/logo/WO-w.png" alt="w" style="left:25.07%;top:78.38%;width:14.52%;">
+          <img data-l data-g="wo" src="assets/logo/WO-o.png" alt="o" style="left:40.5%;top:92.86%;width:10.96%;">
+          <img data-l data-g="wo" src="assets/logo/WO-n.png" alt="n" style="left:51.87%;top:81.2%;width:9.75%;">
+          <img data-l data-g="wo" src="assets/logo/WO-d.png" alt="d" style="left:63.55%;top:58.68%;width:9.85%;">
+          <img data-l data-g="wo" src="assets/logo/WO-e.png" alt="e" style="left:74.81%;top:90.04%;width:7.82%;">
+          <img data-l data-g="wo" src="assets/logo/WO-r.png" alt="r" style="left:83.95%;top:85.62%;width:8.22%;">
+          <div data-zone="ap" style="left:0%;top:0%;width:55%;height:70%;"></div>
+          <div data-zone="wo" style="left:24%;top:55%;width:70%;height:72%;"></div>
+        </div>
+        <p class="hero-tagline">A collective of makers releasing curious apps into the world, whenever the work
+          is ready, and never a day before.</p>
+      </div>
+      <div class="hero-scroll">&darr; &nbsp; ENTER THE COLLECTION</div>
     </header>
 
-    <div class="layout">
-      <nav class="toc" aria-label="Sections">
-        <a class="active" href="#about">About</a>
-        <a href="#apps">Apps</a>
-        <a href="#faq">FAQ</a>
-        <a href="#join">Newsletter</a>
-        <a href="https://x.com/AppliedWndrLab" target="_blank">X / Twitter</a>
-        <span class="toc-dot">
-          <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="4" cy="4" r="4" fill="currentColor" />
-          </svg>
-
-        </span>
-      </nav>
-
-      <main class="content">
-        <section class="about" id="about" aria-label="About">
-          <p class="bio">Applied Wonder is a workshop of curious people building things we wish existed.<br/><br/>
-We focus on what makes life unnecessarily hard and try to remove it, using free local AI where we can, charging fairly when we can't.<br/><br/>No grand agenda. Just good work on problems worth solving.
-</p>
-          <div class="engraving-stage">
-            <picture>
-              <source srcset="assets/landscape-engraving.webp" type="image/webp">
-              <img src="assets/landscape-engraving.png" alt="">
-            </picture>
-          </div>
-        </section>
-
-        <section class="apps" id="apps" aria-label="Apps">
-          <div class="apps-heading">
-            <h2>Drops</h2>
-            <span></span>
-          </div>
-
-          <div class="app-list">
-            <article class="app-row" id="mnemo">
-              <div class="app-icon-shell" aria-hidden="true">
-                <picture>
-                  <source srcset="assets/Mnemo 1024_512@2x.webp" type="image/webp">
-                  <img src="assets/Mnemo 1024_512@2x.png" alt="" class="app-icon">
-                </picture>
-              </div>
-              <div class="app-copy">
-                <h3>Mnemo</h3>
-                <p>Your second brain, reimagined.</p>
-              </div>
-            </article>
-            <a href="https://www.thatsright.xyz/" target="_blank" class="app-row" id="thats-right">
-              <div class="app-icon-shell" aria-hidden="true">
-                <picture>
-                  <source srcset="assets/AppIcon-thatsright.webp" type="image/webp">
-                  <img src="assets/AppIcon-thatsright.png" alt="" class="app-icon">
-                </picture>
-              </div>
-              <div class="app-copy">
-                <h3>That's Right</h3>
-                <p class="shimmer-text"><span id="hint-text">Next up: the thing you do every morning, minus the
-                    friction.</span></p>
-              </div>
-              <span class="soon-badge notify-badge" id="notify-badge">Notify me</span>
-            </a>
-          </div>
-        </section>
-
-        <section class="faq" id="faq" aria-label="FAQ">
-          <div class="faq-heading">
-            <h2>FAQ</h2>
-            <span></span>
-          </div>
-
-          <div class="faq-list">
-            <div class="faq-item">
-              <h3>Who?</h3>
-              <p>A small group of curious people who would rather let the work speak. Simply building things.</p>
-            </div>
-
-            <div class="faq-item">
-              <h3>Why?</h3>
-              <p>To tinker, explore, and reconnect with what we actually need in our daily lives and how AI can really
-                help.</p>
-            </div>
-
-            <div class="faq-item">
-              <h3>When?</h3>
-              <p>No agenda. That's the point. A product is ready when it's ready — our development cycle is free from
-                corporate deadlines and market expectations. Not from our users.</p>
-            </div>
-          </div>
-        </section>
-
-        <section class="visual-signup" id="join" aria-label="Newsletter signup">
-          <div class="signup-wrap newsletter-form-container">
-            <div class="signup-glow"></div>
-            <form class="signup-form newsletter-form"
-              action="https://app.loops.so/api/newsletter-form/cmqzc424l01xf0j321kmfkhad" method="POST">
-              <input class="newsletter-form-input" type="email" name="email" placeholder="name@email.com"
-                aria-label="Email address" required>
-              <button type="submit" class="newsletter-form-button" aria-label="Join newsletter">
-                <svg width="57" height="57" viewBox="0 0 58 58" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="28.5" cy="28.5" r="28.5" fill="url(#paint0_linear_65_144102)" />
-                  <circle cx="28.5" cy="28.5" r="28" stroke="black" stroke-opacity="0.1" />
-                  <path
-                    d="M31.4855 39.8913C32.0012 39.8913 32.5169 39.6662 32.9526 39.2303L42.4238 29.7882C42.8233 29.396 43.063 28.8077 43.063 28.2339C43.063 27.6602 42.8233 27.0718 42.4238 26.6796L32.9672 17.2448C32.5169 16.7872 32.0012 16.5693 31.4855 16.5693C30.2508 16.5693 29.4155 17.4264 29.4155 18.5667C29.4155 19.1986 29.6842 19.6852 30.0765 20.0702L33.3304 23.3386L38.6179 28.2339L33.3304 33.1293L30.0765 36.3904C29.6842 36.7609 29.4155 37.262 29.4155 37.8939C29.4155 39.0342 30.2508 39.8913 31.4855 39.8913ZM16.9592 30.3403H33.3812L39.0246 30.0352C40.1505 29.9771 40.9058 29.3089 40.9058 28.2339C40.9058 27.159 40.1505 26.4908 39.0246 26.4327L33.3812 26.1276H16.9592C15.6518 26.1276 14.7803 26.9774 14.7803 28.2339C14.7803 29.4905 15.6518 30.3403 16.9592 30.3403Z"
-                    fill="black" fill-opacity="0.3" />
-                  <defs>
-                    <linearGradient id="paint0_linear_65_144102" x1="28.5" y1="0" x2="28.5" y2="57"
-                      gradientUnits="userSpaceOnUse">
-                      <stop stop-color="var(--button-gradient-start, #CACACA)" />
-                      <stop offset="1" stop-color="var(--button-gradient-end, #B8B8B8)" />
-                    </linearGradient>
-                  </defs>
-                </svg>
-              </button>
-              <span class="newsletter-loading-button">Please wait...</span>
-            </form>
-            <div class="newsletter-success">
-              <p class="newsletter-success-message">Wonderfull! We'll keep you posted. Welcome to the Applied Wonder family.</p>
-            </div>
-            <div class="newsletter-error">
-              <p class="newsletter-error-message">Oops! Something went wrong, please try again</p>
-            </div>
-            <button class="newsletter-back-button" type="button">&larr; Back</button>
-          </div>
-        </section>
-
-        <div class="spacer"></div>
-
-        <footer class="footer-collage" aria-label="Applied Wonder collage">
-          <picture>
-            <source srcset="assets/ascii-art-dark.webp" media="(prefers-color-scheme: dark)" type="image/webp">
-            <source srcset="assets/ascii-art-light.webp" type="image/webp">
-            <source srcset="assets/ascii-art-dark.png" media="(prefers-color-scheme: dark)">
-            <img class="footer-field" src="assets/ascii-art-light.png" alt="">
-          </picture>
-          <picture>
-            <source srcset="assets/apps-dark.webp" media="(prefers-color-scheme: dark)" type="image/webp">
-            <source srcset="assets/apps-light.webp" type="image/webp">
-            <source srcset="assets/apps-dark.png" media="(prefers-color-scheme: dark)">
-            <img class="footer-window" src="assets/apps-light.png" alt="">
-          </picture>
-          <picture>
-            <source srcset="assets/bio-dark.webp" media="(prefers-color-scheme: dark)" type="image/webp">
-            <source srcset="assets/bio-light.webp" type="image/webp">
-            <source srcset="assets/bio-dark.png" media="(prefers-color-scheme: dark)">
-            <img class="footer-text" src="assets/bio-light.png" alt="">
-          </picture>
-          <picture>
-            <source srcset="assets/links-dark.webp" media="(prefers-color-scheme: dark)" type="image/webp">
-            <source srcset="assets/links-light.webp" type="image/webp">
-            <source srcset="assets/links-dark.png" media="(prefers-color-scheme: dark)">
-            <img class="footer-small" src="assets/links-light.png" alt="">
-          </picture>
-          <picture>
-            <source srcset="assets/applied-logo-white.svg" media="(prefers-color-scheme: dark)">
-            <img class="footer-logo-applied" src="assets/applied-logo.svg" alt="">
-          </picture>
-        </footer>
-      </main>
+    <!-- ornament rule -->
+    <div class="ornament-rule" aria-hidden="true">
+      <span></span>
+      <picture>
+        <source srcset="assets/LetterLockup-dark.svg" media="(prefers-color-scheme: dark)">
+        <img src="assets/LetterLockup-light.svg" alt="">
+      </picture>
+      <span></span>
     </div>
-  </div>
+
+    <!-- MANIFESTO -->
+    <section class="manifesto" id="about" aria-label="About">
+      <p class="manifesto-lead"><img class="dropcap" src="assets/vector-a.png" alt="A">pplied Wonder is a workshop of
+        curious people building the things we wish existed. We look for what makes life unnecessarily hard &mdash;
+        and quietly remove it. Free local AI where we can; a fair price where we can't.</p>
+      <p class="manifesto-note">No grand agenda. Just good work on problems worth solving.</p>
+    </section>
+
+    <!-- DROPS ledger -->
+    <section class="ledger" id="drops" aria-label="Drops">
+      <div class="ledger-heading">
+        <span class="ledger-title">The Ledger of Drops</span>
+        <span class="ledger-rule"></span>
+      </div>
+
+      <!-- TEASER — the next drop -->
+      <div class="ledger-row">
+        <span class="ledger-no"><span class="ledger-numeral">1</span></span>
+        <img class="ledger-icon ledger-icon-teaser" src="assets/Teaserappicon.png" alt="">
+        <div class="ledger-copy">
+          <div class="ledger-name ledger-shimmer">Something for your mornings</div>
+          <div class="ledger-desc">The friction you've stopped noticing &mdash; gone.</div>
+        </div>
+        <div class="ledger-meta">SOON<br>no. iii</div>
+      </div>
+
+      <!-- RELEASED — hidden for now, released later -->
+      <a href="https://www.thatsright.xyz/" target="_blank" class="ledger-row ledger-released is-hidden">
+        <picture>
+          <source srcset="assets/AppIcon-thatsright.webp" type="image/webp">
+          <img class="ledger-icon" src="assets/AppIcon-thatsright.png" alt="">
+        </picture>
+        <div class="ledger-copy">
+          <div class="ledger-name">That's Right</div>
+          <div class="ledger-desc">Settle any argument with the receipts.</div>
+        </div>
+        <div class="ledger-meta ledger-meta-live">FEB 2026<br><span>no. i &middot; live</span></div>
+      </a>
+      <div class="ledger-row ledger-released is-hidden">
+        <picture>
+          <source srcset="assets/Mnemo 1024_512@2x.webp" type="image/webp">
+          <img class="ledger-icon" src="assets/Mnemo 1024_512@2x.png" alt="">
+        </picture>
+        <div class="ledger-copy">
+          <div class="ledger-name">Mnemo</div>
+          <div class="ledger-desc">Your second brain, reimagined.</div>
+        </div>
+        <div class="ledger-meta ledger-meta-live">JUN 2026<br><span>no. ii &middot; live</span></div>
+      </div>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section class="letter" id="join" aria-label="Newsletter signup">
+      <div class="signup newsletter-form-container">
+        <div class="letter-kicker">The letter</div>
+        <p class="letter-lede">Be first to know when the next wonder is released.</p>
+        <form class="letter-form newsletter-form"
+          action="https://app.loops.so/api/newsletter-form/cmqzc424l01xf0j321kmfkhad" method="POST">
+          <input class="newsletter-form-input" type="email" name="email" placeholder="name@email.com"
+            aria-label="Email address" spellcheck="false" required>
+          <button type="submit" class="newsletter-form-button" aria-label="Join newsletter">SUBSCRIBE</button>
+          <span class="newsletter-loading-button">Please wait...</span>
+        </form>
+        <div class="newsletter-success">
+          <p class="newsletter-success-message">Welcome to the cabinet. We'll be in touch.</p>
+        </div>
+        <div class="newsletter-error">
+          <p class="newsletter-error-message">Oops! Something went wrong, please try again</p>
+        </div>
+        <button class="newsletter-back-button" type="button">&larr; Back</button>
+      </div>
+    </section>
+
+    <!-- PETITION -->
+    <section class="petition" aria-label="Join">
+      <a class="petition-link" href="#join">Petition to join the
+        <span class="cabinet-word"><span style="color:#e8483c;">c</span><span style="color:#e8641f;">a</span><span
+            style="color:#efa6ad;">b</span><span style="color:#f5b81d;">i</span><span
+            style="color:#4a63b4;">n</span><span style="color:#0d6b4f;">e</span><span
+            style="color:#e8483c;">t</span></span>
+        <span class="petition-arrow">&rarr;</span></a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <a href="https://x.com/AppliedWndrLab" target="_blank">X / Twitter</a>
+      &nbsp;&middot;&nbsp; hi@appliedwonder.com &nbsp;&middot;&nbsp; &copy; MMXXVI Applied Wonder
+    </footer>
+  </main>
 </body>
 
 </html>
