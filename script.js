@@ -33,7 +33,7 @@ function initWordmark() {
     let on, off;
 
     if (g === 'ap') {
-      // "Applied" — fast sequential jump, plays ONCE per hover, resets on leave
+      // "Applied" — fast sequential jump, plays ONCE per hover, completes on leave
       on = () => {
         const { appliedJump, appliedStep, appliedSpeed } = WORDMARK_SETTINGS;
         letters.forEach((el, i) => {
@@ -44,7 +44,9 @@ function initWordmark() {
           el.style.animation = `aw-jump ${appliedSpeed}ms ease ${i * appliedStep}ms 1`;
         });
       };
-      off = () => letters.forEach((el) => { el.style.animation = 'none'; });
+      off = () => {
+        // Don't interrupt animation - let it complete naturally
+      };
     } else {
       // "wonder" — scatter (arc lift + rotation)
       on = () => {
