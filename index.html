@@ -155,7 +155,12 @@
 
     <!-- MANIFESTO -->
     <section class="manifesto" id="about" aria-label="About">
-      <p class="manifesto-lead"><img class="dropcap" src="assets/vector-a.png" alt="A">pplied Wonder is a workshop of
+      <p class="manifesto-lead"><picture class="dropcap">
+          <source srcset="assets/letters/applied-A-dark.webp" type="image/webp" media="(prefers-color-scheme: dark)">
+          <source srcset="assets/letters/applied-A-dark.png" media="(prefers-color-scheme: dark)">
+          <source srcset="assets/letters/applied-A-light.webp" type="image/webp">
+          <img src="assets/letters/applied-A-light.png" alt="A">
+        </picture>pplied Wonder is a workshop of
         curious people building the things we wish existed. We look for what makes life unnecessarily hard &mdash;
         and quietly remove it. Free local AI where we can; a fair price where we can't.</p>
       <p class="manifesto-note">No grand agenda. Just good work on problems worth solving.</p>
