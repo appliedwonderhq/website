@@ -53,9 +53,11 @@ body {
 
 .hero {
   position: relative;
-  height: 100vh;
-  height: 100svh;
-  min-height: 560px;
+  height: 75vh;
+  height: 75svh;
+  min-height: 420px;
+  max-width: 75%;
+  margin: 0 auto;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -107,7 +109,7 @@ body {
   font-family: 'Cormorant', serif;
   font-weight: 400;
   font-style: italic;
-  font-size: 27px;
+  font-size: 22px;
   line-height: 1.4;
   color: var(--ink-soft);
 }
@@ -119,7 +121,7 @@ body {
   bottom: 26px;
   text-align: center;
   font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
-  font-size: 10.5px;
+  font-size: 11px;
   letter-spacing: .3em;
   color: var(--ink-ghost);
 }
@@ -128,10 +130,10 @@ body {
 
 .wordmark {
   position: relative;
-  width: 480px;
-  max-width: 88%;
+  width: 360px;
+  max-width: 75%;
   aspect-ratio: 1361 / 365;
-  margin: 0 auto 44px;
+  margin: 0 auto 32px;
   user-select: none;
 }
 
@@ -206,7 +208,7 @@ body {
 
 .manifesto-lead {
   margin: 0;
-  font-size: 22px;
+  font-size: 18px;
   line-height: 1.66;
   color: var(--ink);
   text-wrap: pretty;
@@ -229,7 +231,7 @@ body {
   margin: 26px 0 0;
   font-family: 'Cormorant', serif;
   font-style: italic;
-  font-size: 24px;
+  font-size: 19px;
   color: var(--ink-faded);
 }
 
@@ -289,7 +291,7 @@ body {
 
 .ledger-numeral {
   font-family: 'Dom Is Wonderful', cursive;
-  font-size: 52px;
+  font-size: 42px;
   line-height: 1;
   color: var(--ledger-green);
 }
@@ -311,7 +313,7 @@ body {
 
 .ledger-name {
   font-family: 'Cormorant', serif;
-  font-size: 30px;
+  font-size: 24px;
   font-weight: 500;
   line-height: 1;
 }
@@ -338,7 +340,7 @@ body {
 }
 
 .ledger-desc {
-  font-size: 16px;
+  font-size: 13px;
   color: var(--ink-faded);
   margin-top: 3px;
 }
@@ -384,7 +386,7 @@ body {
   max-width: 420px;
   font-family: 'Cormorant', serif;
   font-weight: 600;
-  font-size: 30px;
+  font-size: 24px;
   line-height: 1.15;
   color: var(--ink);
 }
@@ -408,7 +410,7 @@ body {
   padding: 12px 16px;
   color: var(--ink);
   font-family: 'EB Garamond', serif;
-  font-size: 16px;
+  font-size: 13px;
   outline: 0;
 }
 
@@ -445,7 +447,7 @@ body {
   margin: 18px 0 0;
   font-family: 'Cormorant', serif;
   font-style: italic;
-  font-size: 22px;
+  font-size: 18px;
   color: var(--gold);
 }
 
@@ -481,7 +483,7 @@ body {
   margin-top: 12px;
   font-family: 'Cormorant', serif;
   font-style: italic;
-  font-size: 26px;
+  font-size: 21px;
   color: var(--gold);
   text-decoration: none;
 }
@@ -489,7 +491,7 @@ body {
 .cabinet-word {
   font-family: 'Dom Is Wonderful', cursive;
   font-style: normal;
-  font-size: 40px;
+  font-size: 32px;
   line-height: 1;
   letter-spacing: .01em;
   display: inline-flex;
@@ -565,7 +567,7 @@ body {
   }
 
   .manifesto-lead {
-    font-size: 19px;
+    font-size: 15px;
   }
 
   .dropcap {
@@ -589,11 +591,11 @@ body {
   }
 
   .ledger-name {
-    font-size: 24px;
+    font-size: 19px;
   }
 
   .hero-tagline {
-    font-size: 22px;
+    font-size: 18px;
     text-wrap: balance;
   }
 
