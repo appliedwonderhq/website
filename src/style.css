@@ -1,0 +1,625 @@
+/* ============================================================
+   Applied Wonder — soft dots engraving (design 4a)
+   ============================================================ */
+
+@font-face {
+  font-family: 'Dom Is Wonderful';
+  src: url('assets/dom-is-wonderful.ttf') format('truetype');
+  font-display: swap;
+}
+
+:root {
+  --paper: #f6f1e7;
+  --paper-bright: #faf6ee;
+  --paper-deep: #efe7d8;
+  --paper-rgb: 246, 241, 231;
+  --ink: #2a2418;
+  --ink-rgb: 42, 36, 24;
+  --ink-soft: #4a4030;
+  --ink-faded: #7a6d52;
+  --ink-ghost: #a89b7e;
+  --gold: #9a7328;
+  --gold-rgb: 154, 115, 40;
+  --gold-line: rgba(var(--gold-rgb), .32);
+  --gold-gradient-start: #b89a5a;
+  --gold-gradient-mid: #8a6a1e;
+  --letter-bg: #fffdf7;
+  --letter-bg-rgb: 255, 253, 247;
+  --button-text: #f6efdf;
+  --ledger-green: #0f7a4a;
+  --error-color: #b0402f;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'EB Garamond', Georgia, serif;
+}
+
+.site {
+  min-height: 100vh;
+}
+
+/* ---------------- HERO ---------------- */
+
+.hero {
+  position: relative;
+  height: 75vh;
+  height: 75svh;
+  min-height: 420px;
+  max-width: 75%;
+  margin: 0 auto;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(120% 90% at 50% 22%, var(--paper-bright) 0%, var(--paper-deep) 78%);
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+}
+
+.hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center center;
+  opacity: 0.3;
+  transform: scale(1.3);
+}
+
+.hero-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(66% 52% at 50% 46%, rgba(var(--paper-rgb), 0) 34%, rgba(var(--paper-rgb), .88) 100%);
+  pointer-events: none;
+}
+
+.hero-inner {
+  position: relative;
+  text-align: center;
+  padding: 0 40px;
+}
+
+.hero-kicker {
+  font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+  font-size: 11px;
+  letter-spacing: .42em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 30px;
+}
+
+.hero-tagline {
+  margin: 0 auto;
+  max-width: 620px;
+  text-wrap: balance;
+  font-family: 'Cormorant', serif;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 22px;
+  line-height: 1.4;
+  color: var(--ink-soft);
+}
+
+.hero-scroll {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 26px;
+  text-align: center;
+  font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+  font-size: 11px;
+  letter-spacing: .3em;
+  color: var(--ink-ghost);
+}
+
+/* ---------------- WORDMARK ---------------- */
+
+.wordmark {
+  position: relative;
+  width: 360px;
+  max-width: 75%;
+  aspect-ratio: 1361 / 365;
+  margin: 0 auto 32px;
+  user-select: none;
+}
+
+.wordmark [data-l] {
+  position: absolute;
+  height: auto;
+  pointer-events: none;
+  transform-origin: 50% 100%;
+  transition: transform .45s cubic-bezier(.34, 1.56, .5, 1);
+}
+
+.wordmark [data-l] img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.wordmark [data-zone] {
+  position: absolute;
+  cursor: default;
+}
+
+@keyframes aw-jump {
+  0% {
+    transform: translateY(0);
+  }
+
+  45% {
+    transform: translateY(calc(var(--jh, 16px) * -1));
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* ---------------- ORNAMENT RULE ---------------- */
+
+.ornament-rule {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  padding: 0 130px;
+  margin-top: -4px;
+}
+
+.ornament-rule span:first-child {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(var(--gold-rgb), .55));
+}
+
+.ornament-rule span:last-child {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(var(--gold-rgb), .55), transparent);
+}
+
+.ornament-rule img {
+  height: 40px;
+  width: auto;
+  display: block;
+}
+
+/* ---------------- MANIFESTO ---------------- */
+
+.manifesto {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 80px 40px 20px;
+}
+
+.manifesto-lead {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.66;
+  color: var(--ink);
+  text-wrap: pretty;
+}
+
+.dropcap {
+  float: left;
+  height: 92px;
+  width: auto;
+  padding: 12px 18px 0 0;
+}
+
+.dropcap img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.manifesto-note {
+  margin: 26px 0 0;
+  font-family: 'Cormorant', serif;
+  font-style: italic;
+  font-size: 19px;
+  color: var(--ink-faded);
+}
+
+/* ---------------- LEDGER OF DROPS ---------------- */
+
+.ledger {
+  max-width: 860px;
+  margin: 60px auto 0;
+  padding: 0 40px;
+}
+
+.ledger-heading {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  margin-bottom: 34px;
+}
+
+.ledger-title {
+  font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+  font-size: 11px;
+  letter-spacing: .34em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.ledger-rule {
+  flex: 1;
+  height: 1px;
+  background: var(--gold-line);
+}
+
+.ledger-row {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  padding: 22px 8px;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.ledger-released {
+  border-top: 1px solid rgba(var(--ink-rgb), .16);
+}
+
+.is-hidden {
+  display: none;
+}
+
+.ledger-no {
+  flex: 0 0 44px;
+  width: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ledger-numeral {
+  font-family: 'Dom Is Wonderful', cursive;
+  font-size: 42px;
+  line-height: 1;
+  color: var(--ledger-green);
+}
+
+.ledger-icon {
+  width: 56px;
+  height: 56px;
+  display: block;
+}
+
+.ledger-released .ledger-icon {
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(var(--ink-rgb), .18);
+}
+
+.ledger-copy {
+  flex: 1;
+}
+
+.ledger-name {
+  font-family: 'Cormorant', serif;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+@keyframes aw-shimmer {
+  0% {
+    background-position: 140% 0;
+  }
+
+  100% {
+    background-position: -140% 0;
+  }
+}
+
+.ledger-shimmer {
+  font-style: italic;
+  font-weight: 400;
+  background: linear-gradient(90deg, var(--gold-gradient-start) 0%, var(--gold-gradient-start) 42%, var(--gold-gradient-mid) 50%, var(--gold-gradient-start) 58%, var(--gold-gradient-start) 100%);
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: aw-shimmer 4s linear infinite;
+}
+
+.ledger-desc {
+  font-size: 13px;
+  color: var(--ink-faded);
+  margin-top: 3px;
+}
+
+.ledger-meta {
+  text-align: right;
+  font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+  font-size: 11px;
+  color: var(--ink-ghost);
+}
+
+.ledger-meta-live {
+  color: var(--gold);
+}
+
+.ledger-meta-live span {
+  color: var(--ink-ghost);
+}
+
+/* ---------------- NEWSLETTER ---------------- */
+
+.letter {
+  max-width: 560px;
+  margin: 200px auto 0;
+  padding: 0 40px;
+}
+
+.signup {
+  text-align: center;
+}
+
+.letter-kicker {
+  font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+  font-size: 11px;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 14px;
+}
+
+.letter-lede {
+  margin: 0 auto 22px;
+  max-width: 420px;
+  font-family: 'Cormorant', serif;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.15;
+  color: var(--ink);
+}
+
+.letter-form {
+  display: flex;
+  gap: 8px;
+  max-width: 440px;
+  margin: 0 auto;
+  background: var(--letter-bg);
+  border: 1px solid rgba(var(--gold-rgb), .3);
+  border-radius: 12px;
+  padding: 5px;
+}
+
+.newsletter-form-input {
+  flex: 1;
+  min-width: 0;
+  background: transparent;
+  border: 0;
+  padding: 12px 16px;
+  color: var(--ink);
+  font-family: 'EB Garamond', serif;
+  font-size: 15px;
+  outline: 0;
+}
+
+.newsletter-form-button {
+  border: 0;
+  background: var(--ink);
+  color: var(--button-text);
+  font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+  font-size: 11px;
+  letter-spacing: .08em;
+  padding: 0 24px;
+  border-radius: 9px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.newsletter-loading-button {
+  display: none;
+  align-items: center;
+  padding: 12px 16px;
+  font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+  font-size: 11px;
+  color: var(--ink-faded);
+}
+
+.newsletter-success,
+.newsletter-error {
+  display: none;
+  justify-content: center;
+}
+
+.newsletter-success-message,
+.newsletter-error-message {
+  margin: 18px 0 0;
+  font-family: 'Cormorant', serif;
+  font-style: italic;
+  font-size: 18px;
+  color: var(--gold);
+}
+
+.newsletter-error-message {
+  color: var(--error-color);
+}
+
+.newsletter-back-button {
+  display: none;
+  margin: 16px auto 0;
+  border: 0;
+  background: transparent;
+  font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+  font-size: 11px;
+  letter-spacing: .08em;
+  color: var(--ink-faded);
+  cursor: pointer;
+}
+
+/* ---------------- PETITION ---------------- */
+
+.petition {
+  max-width: 860px;
+  margin: 200px auto 0;
+  padding: 0 40px;
+  text-align: center;
+}
+
+.petition-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+  font-family: 'Cormorant', serif;
+  font-style: italic;
+  font-size: 21px;
+  color: var(--gold);
+  text-decoration: none;
+}
+
+.cabinet-word {
+  font-family: 'Dom Is Wonderful', cursive;
+  font-style: normal;
+  font-size: 32px;
+  line-height: 1;
+  letter-spacing: .01em;
+  display: inline-flex;
+  align-items: baseline;
+}
+
+.petition-arrow {
+  font-style: normal;
+}
+
+/* ---------------- FOOTER ---------------- */
+
+.footer {
+  max-width: 860px;
+  margin: 250px auto 0;
+  padding: 34px 40px 60px;
+  border-top: 1px solid rgba(var(--ink-rgb), .14);
+  font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+  font-size: 11px;
+  line-height: 1.9;
+  color: var(--ink-ghost);
+}
+
+.footer a {
+  color: var(--ink-faded);
+  text-decoration: none;
+}
+
+/* ---------------- DARK MODE ---------------- */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #1a1a1a;
+    --paper-bright: #222;
+    --paper-deep: #151515;
+    --paper-rgb: 26, 26, 26;
+    --ink: #e7e3da;
+    --ink-rgb: 231, 227, 218;
+    --ink-soft: #d4cfc4;
+    --ink-faded: #a8a296;
+    --ink-ghost: #6b665e;
+    --gold: #c9a86a;
+    --gold-rgb: 201, 168, 106;
+    --gold-line: rgba(var(--gold-rgb), .32);
+    --gold-gradient-start: #d4b87a;
+    --gold-gradient-mid: #a67a2e;
+    --letter-bg: #2a2418;
+    --letter-bg-rgb: 42, 36, 24;
+    --button-text: #1a1a1a;
+    --ledger-green: #4ade80;
+    --error-color: #e87f6f;
+  }
+
+  .newsletter-success-message,
+  .newsletter-error-message {
+    color: #e8c979;
+  }
+
+  .newsletter-error-message {
+    color: #e87f6f;
+  }
+}
+
+/* ---------------- RESPONSIVE ---------------- */
+
+@media (max-width: 720px) {
+  .hero {
+    max-width: 100%;
+  }
+
+  .ornament-rule {
+    padding: 0 40px;
+  }
+
+  .manifesto {
+    padding-top: 58px;
+  }
+
+  .manifesto-lead {
+    font-size: 15px;
+  }
+
+  .dropcap {
+    height: 72px;
+  }
+
+  .ledger,
+  .letter,
+  .petition,
+  .footer {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .ledger-row {
+    gap: 16px;
+  }
+
+  .ledger-no {
+    display: none;
+  }
+
+  .ledger-name {
+    font-size: 19px;
+  }
+
+  .wordmark {
+    width: 280px;
+    max-width: 85%;
+  }
+
+  .hero-tagline {
+    font-size: 18px;
+    text-wrap: balance;
+  }
+
+  .hero-bg img {
+    transform: scale(1.1);
+  }
+
+  .letter-form {
+    flex-direction: column;
+  }
+
+  .newsletter-form-button {
+    padding: 12px 24px;
+  }
+}
