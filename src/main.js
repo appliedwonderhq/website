@@ -30,6 +30,8 @@ function initWordmark() {
     (groups[g] = groups[g] || []).push(el);
   });
 
+  const animationFunctions = {};
+
   Object.entries(groups).forEach(([g, letters]) => {
     const n = letters.length;
     let on, off;
@@ -69,6 +71,9 @@ function initWordmark() {
       });
     }
 
+    // Store animation functions for automatic triggering
+    animationFunctions[g] = { on, off };
+
     // hover zone covers the whole word area (not just the letter cut-outs)
     const zone = wm.querySelector(`[data-zone="${g}"]`);
     if (zone) {
@@ -76,6 +81,38 @@ function initWordmark() {
       zone.addEventListener('pointerleave', off);
     }
   });
+
+  // Automatic animation triggering
+  function triggerAnimations() {
+    // Trigger "applied" animation
+    if (animationFunctions.ap) {
+      animationFunctions.ap.on();
+      setTimeout(() => animationFunctions.ap.off(), 2000);
+    }
+    
+    // Trigger "wonder" animation after a short delay
+    setTimeout(() => {
+      if (animationFunctions.wo) {
+        animationFunctions.wo.on();
+        setTimeout(() => animationFunctions.wo.off(), 360);
+      }
+    }, 500);
+  }
+
+  // Start 3 seconds after page load
+  setTimeout(() => {
+    triggerAnimations();
+    
+    // Repeat every 20-30 seconds (random interval)
+    function scheduleNext() {
+      const delay = 20000 + Math.random() * 10000; // 20-30 seconds
+      setTimeout(() => {
+        triggerAnimations();
+        scheduleNext();
+      }, delay);
+    }
+    scheduleNext();
+  }, 3000);
 }
 
 /* ============================================================
