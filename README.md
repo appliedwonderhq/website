@@ -1,5 +1,74 @@
 # Applied Wonder
 
+A collective of makers releasing curious apps into the world, whenever the work is ready, and never a day before.
+
+## Development
+
+This project uses Vite for development and building.
+
+### Installation
+
+```bash
+npm install
+```
+
+### Development Server
+
+```bash
+npm run dev
+```
+
+The development server runs on `http://localhost:5173/`
+
+### Build for Production
+
+```bash
+npm run build
+```
+
+The production build is output to the `dist/` directory.
+
+### Preview Production Build
+
+```bash
+npm run preview
+```
+
+## Deployment
+
+This project is configured for Vercel deployment with optimal settings:
+
+- **Framework**: Vite (auto-detected)
+- **Build Command**: `npm run build`
+- **Output Directory**: `dist`
+- **Caching**: Optimized headers for static assets (1-year cache for images)
+- **Security**: X-Content-Type-Options, X-Frame-Options, X-XSS-Protection headers
+- **Routing**: SPA rewrite for client-side routing
+
+To deploy:
+1. Push code to GitHub/GitLab
+2. Import project in Vercel
+3. Vercel will automatically detect and deploy using `vercel.json` configuration
+
+## Performance Optimizations
+
+The site includes several performance optimizations:
+
+- **Lazy Loading**: Images below the fold use `loading="lazy"` to defer loading
+- **Resource Prioritization**: Critical above-the-fold images use `fetchpriority="high"`
+- **CSS Preloading**: Critical CSS is preloaded for faster render start
+- **Font Loading**: Optimized font loading with `font-display: swap`
+- **Image Optimization**: Automatic WebP conversion via `vite-plugin-image-to-webp` (74% size reduction)
+- **Fade-in Animations**: Smooth CSS fade-in animations for page sections
+
+## Features
+
+- **Automatic Letter Animations**: Wordmark letters animate 3 seconds after page load and repeat every 20-30 seconds
+- **Hover Interactions**: "Applied" letters jump on hover, "wonder" letters scatter
+- **Dark Mode**: Automatic dark mode support via `prefers-color-scheme`
+- **Responsive Design**: Mobile-optimized layout
+- **Newsletter Signup**: Integrated Loops newsletter form with rate limiting
+
 ## WebP Image Generation
 
 This project uses WebP images for better performance. To generate WebP files from PNG assets:
