@@ -56,7 +56,6 @@ body {
   height: 75vh;
   height: 75svh;
   min-height: 420px;
-  max-width: 75%;
   margin: 0 auto;
   overflow: hidden;
   display: flex;
@@ -561,10 +560,6 @@ body {
 /* ---------------- RESPONSIVE ---------------- */
 
 @media (max-width: 720px) {
-  .hero {
-    max-width: 100%;
-  }
-
   .ornament-rule {
     padding: 0 40px;
   }
